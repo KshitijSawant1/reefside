@@ -1,0 +1,252 @@
+/* Texture background */
+body {
+  background-image: url("background.avif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #d3e6f5; /* Light bright blue */
+}
+
+.App {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1.5fr 1.5fr 0.1fr;
+  grid-template-areas:
+    "Title Title Title Title"
+    "Table Table Table Paymentlog"
+    "Table Table Table Paymentlog"
+    "Table Table Table Paymentlog";
+  grid-gap: 10px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-align: center;
+}
+
+.Title {
+  background-image: url("ReefSideTitle.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30% auto;
+  background-color: #b0d4fe6a; /* Light bright blue */
+  grid-area: Title;
+  border-radius: 10px;
+}
+
+.Paymentlog {
+  grid-area: Paymentlog;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 3fr 0.5fr 0.5fr;
+  grid-template-areas:
+    "Receipt"
+    "Total"
+    "ClearReceipt";
+  overflow-y: auto;
+}
+
+.Receipt {
+  background-color: #b0d4fe6a; /* Light bright blue */
+  grid-area: Receipt;
+  border-radius: 10px;
+  padding: 15px;
+  overflow-y: scroll;
+  border: 1px solid #000000; /* Black border */
+}
+
+.ReceiptList {
+  list-style: none;
+  padding: 0;
+}
+
+.ReceiptEntry {
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.ReceiptFooter {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.Total {
+  grid-area: Total;
+  background-color: #b0d4fe6a; /* Light bright blue */
+  align-self: center;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.ClearReceipt {
+  grid-area: ClearReceipt;
+  background-color: #b0d4fe6a; /* Light bright blue */
+  border: none;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.ClearReceiptButton {
+  color: #000000; /* White text */
+  background-color: #ffffff00; /* Light bright blue */
+  font-size: 50%;
+  border: none;
+  border-radius: 10px;
+  padding: 20px 30px;
+  text-align: center;
+  font-size: 16px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.ClearReceiptButton:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.Table {
+  background-color: #b0d4fe6a; /* Light bright blue */
+  grid-area: Table;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "TableRow1"
+    "TableRow2"
+    "TableRow3";
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  grid-gap: 10px;
+}
+
+@media (max-width: 550px) {
+  body {
+    background-image: url("background.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #d3e6f5; /* Light bright blue */
+  }
+  .App {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 2.2fr 4fr;
+    grid-template-areas:
+      "Title"
+      "Table"
+      "Paymentlog";
+    grid-gap: 10px;
+  }
+}
+
+[class*="TableButton"] {
+  color: #0000ff; /* Blue text */
+  background-color: #45e3ff6c; /* Light brown */
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 25px;
+  text-align: center;
+  width: 90%;
+  height: 80%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  font-size: 16px;
+  align-self: center;
+  transition: box-shadow 0.3s ease-in-out;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-size: 70% auto;
+}
+
+.TableButton:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.TableButton-1 {
+  background-image: url("ReefsideSalad.png");
+  grid-area: TableButton-1;
+}
+/*
+    background-image: url('');
+  */
+.TableButton-2 {
+  background-image: url("CaspianWrap.png");
+  grid-area: TableButton-2;
+}
+
+.TableButton-3 {
+  background-image: url("ParadiseSushiRoll.png");
+  background-size: 60% auto;
+  grid-area: TableButton-3;
+}
+
+.TableButton-4 {
+  background-image: url("LobsterRavioli.png");
+  grid-area: TableButton-4;
+}
+
+.TableButton-5 {
+  background-image: url("IslandBurger.png");
+  background-size: 63% auto;
+  grid-area: TableButton-5;
+}
+
+.TableButton-6 {
+  background-image: url("Miso-GlazedSkewers.png");
+  grid-area: TableButton-6;
+}
+
+.TableButton-7 {
+  background-image: url("OceanSunsetSpritzer.png");
+  grid-area: TableButton-7;
+}
+
+.TableButton-8 {
+  background-image: url("CoralBreezePunch.png");
+  grid-area: TableButton-8;
+}
+
+.TableButton-9 {
+  background-image: url("TidalWaveLemonade.png");
+  grid-area: TableButton-9;
+}
+
+.TableRow1 {
+  grid-area: TableRow1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "TableButton-1 TableButton-2 TableButton-3";
+  grid-gap: 10px;
+}
+
+.TableRow2 {
+  grid-area: TableRow2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "TableButton-4 TableButton-5 TableButton-6";
+  grid-gap: 10px;
+}
+
+.TableRow3 {
+  grid-area: TableRow3;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "TableButton-7 TableButton-8 TableButton-9";
+  grid-gap: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

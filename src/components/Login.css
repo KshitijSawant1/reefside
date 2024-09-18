@@ -1,0 +1,53 @@
+body {
+    background-image: url("background.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #d3e6f5; /* Light bright blue */
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Transparent white for better readability */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+  }
+  
+  .login-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .login-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .login-container button {
+    padding: 10px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .login-container button:hover {
+    background-color: #357ae8;
+  }
+  
+  .logo {
+    width: 200px; /* Adjust the size as needed */
+    margin-bottom: 10px;
+  }
+  
