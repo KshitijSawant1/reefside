@@ -6,46 +6,52 @@ import Admin from "./components/Admin";
 import Title from "./components/Title";
 import Paymentlog from "./components/Paymentlog";
 import Table from "./components/Table";
-//New->
 import { db } from "./components/firebase-config.js";
-
-
-//New->
-import { 
-  collection, 
-  getDocs,   // R
-  addDoc,    // C
-  updateDoc, // U
-  doc,       // U
-  deleteDoc  // D
-} from "firebase/firestore";
-
+import { collection, addDoc } from "firebase/firestore";
 
 function MainPage() {
   const [currentdish, setCurrentdish] = useState([]);
-
-  //New->
   const usersCollectionRef = collection(db, "Orders");
 
   const clearReceipt = async () => {
+    const getTotal = () => {
+      return currentdish.reduce((total, dish) => total + dish.price, 0);
+    };
 
-    console.log(currentdish);
-    await addDoc(usersCollectionRef, { currentdish });
-    setCurrentdish([]);
+    const calculateGST = (total) => {
+      const gstRate = 0.18; 
+      return Math.round((total * gstRate) * 100) / 100; 
+    };
 
-};
+    const getTotalWithGST = (total, gstAmount) => {
+      return Math.round((total + gstAmount) * 100) / 100; 
+    };
 
-  //New->
-  // const [newName, setNewName] = useState("");
-  // const [newAge, setNewAge] = useState(0);
+    try {
+  
+      const dishesObject = currentdish.reduce((acc, dish) => {
+        acc[dish.name] = dish.price;
+        return acc;
+      }, {});
 
-  // const createUser = async () => {
-  //   await addDoc(usersCollectionRef, { name: newName, age: Number(newAge) });
-  // }
-
-  // <button onClick={createUser}>Create User</button><br/><br/>
+      const total = getTotal(); 
+      const gstAmount = calculateGST(total);
+      const totalWithGST = getTotalWithGST(total, gstAmount); 
 
 
+      await addDoc(usersCollectionRef, {
+        dishes: dishesObject,
+        total: total,
+        gstAmount: gstAmount,
+        totalWithGST: totalWithGST,
+      });
+     // console.log(addDoc);
+     // console.log(setCurrentdish([]));
+      setCurrentdish([]);
+    } catch (error) {
+      console.error("Error adding document:", error);
+    }
+  };
 
   return (
     <div className="App">
