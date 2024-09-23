@@ -1,28 +1,15 @@
-// import React from "react";
-//New->
-import React,{ useState } from "react";
+import React from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
-
 const Paymentlog = ({ currentdish, clearReceipt }) => {
-
-  //New->
-  // const [total1, setTotal1] = useState(0);
-
   const getTotal = () => {
     let total = 0;
     currentdish.forEach((dish) => {
       total += dish.price;
-      // setTotal1(total);
     });
-    //New->
-    // setTotal1(total); 
-    // console.log(total1);
-    // return setTotal1(total), total;
     return total;
   };
-
 
   const calculateGST = () => {
     const total = getTotal();

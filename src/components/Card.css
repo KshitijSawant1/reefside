@@ -1,0 +1,90 @@
+/* Container for all the waiter cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap if the screen is too narrow */
+  gap: 20px; /* Adds space between the cards */
+  justify-content: center; /* Centers the cards horizontally */
+  padding: 20px; /* Adds some padding around the container */
+}
+
+/* Style for each card */
+.card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Stack items vertically inside the card */
+  align-items: stretch; /* Ensures all items take the full width of the card */
+  gap: 10px; /* Adds spacing between inputs and buttons */
+  max-width: 300px; /* Controls the card width */
+}
+
+/* Style for the input fields inside each card */
+.card input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+
+/* Container for update and delete buttons */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Update button styles */
+.update-button {
+  background-color: #28a745; /* Green color */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Delete button styles */
+.delete-button {
+  background-color: #dc3545; /* Red color */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Hover effect for buttons */
+.update-button:hover {
+  background-color: #218838; /* Darker green */
+}
+
+.delete-button:hover {
+  background-color: #c82333; /* Darker red */
+}
+
+/* Add new waiter card styles */
+.add-waiter-container {
+  display: flex;
+  justify-content: center; /* Centers the Add Waiter card horizontally */
+  margin-top: 20px; /* Adds some space above the Add Waiter card */
+}
+
+.add-waiter-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.add-waiter-button:hover {
+  background-color: #218838;
+}

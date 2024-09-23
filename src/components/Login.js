@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
-import './Login.css';
-// import ReefSideLogo from '/Users/kshitijksawant/Programs/Reefside-Restro-React/reefside/src/components/ReefSideTitle.png'; 
-import ReefSideLogo from './ReefSideTitle.png'; 
-// Adjust the path to your image
+import React, { useState } from "react";
+import "./Login.css";
+import ReefSideLogo from "/Users/kshitijksawant/Programs/Reefside-Restro-React/reefside/src/components/ReefSideTitle.png"; // Adjust the path to your image
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
+  // Inside your Login component where you handle login
   const handleLogin = () => {
-    if (username === 'UserA' && password === 'Waiter') {
-      window.location.href = '/app'; // Redirect to main page for UserA
-    } else if (username === 'Admin' && password === 'Manager') {
-      window.location.href = '/admin'; // Redirect to admin page for Admin
+    if (username === "W" && password === "WD") {
+      window.location.href = "/waiter-details"; // Redirect to Waiter Details page
+    } else if (username === "UA" && password === "A") {
+      window.location.href = "/app";
+    } else if (username === "AD" && password === "M") {
+      window.location.href = "/admin";
     } else {
-      setError('Invalid credentials');
+      setError("Invalid credentials");
     }
   };
 
@@ -23,7 +24,7 @@ const Login = () => {
     <div className="login-container">
       {/* Add the logo image above the login box */}
       <img src={ReefSideLogo} alt="ReefSide Logo" className="logo" />
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <input
         type="text"
         placeholder="Username"

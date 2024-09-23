@@ -6,6 +6,7 @@ import Admin from "./components/Admin";
 import Title from "./components/Title";
 import Paymentlog from "./components/Paymentlog";
 import Table from "./components/Table";
+import WaiterDetails from "./components/WaiterDetails"; // New WaiterDetails component
 import { db } from "./components/firebase-config.js";
 import { collection, addDoc } from "firebase/firestore";
 
@@ -19,25 +20,23 @@ function MainPage() {
     };
 
     const calculateGST = (total) => {
-      const gstRate = 0.18; 
-      return Math.round((total * gstRate) * 100) / 100; 
+      const gstRate = 0.18;
+      return Math.round(total * gstRate * 100) / 100;
     };
 
     const getTotalWithGST = (total, gstAmount) => {
-      return Math.round((total + gstAmount) * 100) / 100; 
+      return Math.round((total + gstAmount) * 100) / 100;
     };
 
     try {
-  
       const dishesObject = currentdish.reduce((acc, dish) => {
         acc[dish.name] = dish.price;
         return acc;
       }, {});
 
-      const total = getTotal(); 
+      const total = getTotal();
       const gstAmount = calculateGST(total);
-      const totalWithGST = getTotalWithGST(total, gstAmount); 
-
+      const totalWithGST = getTotalWithGST(total, gstAmount);
 
       await addDoc(usersCollectionRef, {
         dishes: dishesObject,
@@ -45,8 +44,8 @@ function MainPage() {
         gstAmount: gstAmount,
         totalWithGST: totalWithGST,
       });
-     // console.log(addDoc);
-     // console.log(setCurrentdish([]));
+      // console.log(addDoc);
+      // console.log(setCurrentdish([]));
       setCurrentdish([]);
     } catch (error) {
       console.error("Error adding document:", error);
@@ -73,6 +72,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/app" element={<MainPage />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/waiter-details" element={<WaiterDetails />} />
       </Routes>
     </Router>
   );
