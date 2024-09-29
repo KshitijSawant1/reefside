@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-// import ReefSideLogo from "/Users/kshitijksawant/Programs/Reefside-Restro-React/reefside/src/components/ReefSideTitle.png"; 
+// import ReefSideLogo from "/Users/kshitijksawant/Programs/Reefside-Restro-React/reefside/src/components/ReefSideTitle.png";
 import ReefSideLogo from "./ReefSideTitle.png"; // Adjust the path to your image
 
 const Login = () => {
