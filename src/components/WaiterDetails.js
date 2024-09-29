@@ -1,3 +1,15 @@
+import React, { useState } from "react";
+const WaiterDetails = () => {
+return (
+  <div>
+    <h1>Waiter details Page </h1>
+  </div>
+);
+};
+export default WaiterDetails;
+
+
+/*
 import React, { useState } from 'react';
 import './Card.css'; // Assuming this is your CSS file for styling the cards
 
@@ -113,3 +125,4 @@ const WaiterDetails = () => {
 };
 
 export default WaiterDetails;
+*/
