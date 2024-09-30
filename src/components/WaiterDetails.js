@@ -1,10 +1,152 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { db } from "./firebase-config.js";
+
+import { 
+  collection, 
+  getDocs,   // R
+  addDoc,    // C
+  updateDoc, // U
+  doc,       // U
+  deleteDoc  // D
+} from "firebase/firestore";
+
+
 const WaiterDetails = () => {
-return (
-  <div>
-    <h1>Waiter details Page </h1>
-  </div>
-);
+
+  const [newName, setNewName] = useState("");
+  const [newId_, setNewId_] = useState(0);
+  const [newAddress, setNewAddress] = useState("");
+  const [newSalary, setNewSalary] = useState(0);
+
+  const [waiters, setWaiters] = useState([]);
+  const waitersCollectionRef = collection(db, "Waiters");
+
+  const createWaiter = async () => {
+    await addDoc(waitersCollectionRef, { 
+      name: newName,
+      id_: Number(newId_),
+      address: newAddress,
+      salary: Number(newSalary)
+    });
+  }
+
+  const editWaiter = async (id) => {
+    const nameInput = prompt("Enter Name: ");
+    const id_Input = parseInt(prompt("Enter ID: "));
+    const addressInput = prompt("Enter Address: ");
+    const salaryInput = parseInt(prompt("Enter Salary:"));
+  
+    const waiterDoc = doc(db, "Waiters", id);
+
+    const newFields = { 
+      name: nameInput, 
+      id_: id_Input, 
+      address: addressInput, 
+      salary: salaryInput, 
+    };
+    await updateDoc(waiterDoc, newFields);
+  };
+
+  const editWaiterName = async (id) => {
+    const nameInput = prompt("Enter Name:");
+  
+    const waiterDoc = doc(db, "Waiters", id);
+
+    const newFields = { name: nameInput };
+    await updateDoc(waiterDoc, newFields);
+  };
+
+  const editWaiterId_ = async (id) => {
+    const id_Input = parseInt(prompt("Enter ID:"));
+  
+    const waiterDoc = doc(db, "Waiters", id);
+
+    const newFields = { id_: id_Input };
+    await updateDoc(waiterDoc, newFields);
+  };
+
+  const editWaiterAddress = async (id) => {
+    const addressInput = prompt("Enter Address:");
+  
+    const waiterDoc = doc(db, "Waiters", id);
+
+    const newFields = { address: addressInput };
+    await updateDoc(waiterDoc, newFields);
+  };
+
+  const editWaiterSalary = async (id) => {
+    const salaryInput = parseInt(prompt("Enter Salary:"));
+  
+    const waiterDoc = doc(db, "Waiters", id);
+
+    const newFields = { salary: salaryInput };
+    await updateDoc(waiterDoc, newFields);
+  };
+
+  const deleteWaiter = async (id) => {
+    const waiterDoc = doc(db, "Waiters", id);
+    await deleteDoc(waiterDoc);
+  }
+
+  useEffect(() => {
+    const getWaiters = async () => {
+      const data = await getDocs(waitersCollectionRef);
+      setWaiters(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      console.log(waiters);
+    };
+    getWaiters();
+  },[]);
+
+
+  return (
+    <div className="WaiterDetails">
+
+      <input placeholder="Name" onChange={(event) => {
+        setNewName(event.target.value);
+      }}
+      /><br/>
+
+      <input type="number" placeholder="ID" onChange={(event) => {
+        setNewId_(event.target.value);
+      }}/><br/>
+
+      <input placeholder="Address" onChange={(event) => {
+        setNewAddress(event.target.value);
+      }}/><br/>
+
+      <input type="number" placeholder="Salary" onChange={(event) => {
+        setNewSalary(event.target.value);
+      }}/><br/>
+
+      <button onClick={createWaiter}>Add</button><br/><br/>
+
+      {
+        waiters.map((waiter) => {
+          return (
+            <div>
+              <b>Name : {waiter.name}</b> 
+              {/* <button onClick={() => {editWaiterName(waiter.id)}}>🖍</button> <br/> */}
+              <button onClick={() => {editWaiterName(waiter.id)}}>✎</button> <br/>
+              
+              <b>ID : {waiter.id_}</b> 
+              <button onClick={() => {editWaiterId_(waiter.id)}}>✎</button> <br/>
+
+              <b>Address : {waiter.address}</b> 
+              <button onClick={() => {editWaiterAddress(waiter.id)}}>✎</button> <br/>
+
+              <b>Salary : {waiter.salary}</b> 
+              <button onClick={() => {editWaiterSalary(waiter.id)}}>✎</button> <br/>
+              
+              <button onClick={() => {editWaiter(waiter.id)}}> Update </button>
+              <button onClick={() => {deleteWaiter(waiter.id)}}> Delete </button>
+              <br/><br/>
+            </div>
+          )
+        })
+      }
+
+    </div>
+  );
 };
 export default WaiterDetails;
 
