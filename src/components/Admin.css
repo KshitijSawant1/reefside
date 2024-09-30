@@ -1,6 +1,7 @@
 /* General body styling with repeated background */
 body {
-  background-image: url("/Users/kshitijksawant/Programs/Reefside-Restro-React/reefside/src/components/background.avif");
+  /* background-image: url("/Users/kshitijksawant/Programs/Reefside-Restro-React/reefside/src/components/background.avif"); */
+  background-image: url("./background.avif");  /* Adjust the path to your image */
   background-repeat: repeat;
   background-size: auto;
   background-position: top left;
