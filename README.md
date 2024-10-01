@@ -24,7 +24,7 @@ Real-Time Updates: Fetches and displays updated data using Firebase Firestore.
 ## 4. Payment Calculation
 GST Calculation: Automatically calculates GST and adds it to the total amount.
 Final Payment: View final amounts including GST for each order.
-![Uploading image.png…]()
+<img width="1106" alt="image" src="https://github.com/user-attachments/assets/dc124d92-7c02-4d08-9493-303ec7b38627">
 
 ## 5. Responsive Design
 Mobile-Friendly: Adapts to different screen sizes with responsive design.
