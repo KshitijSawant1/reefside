@@ -1,137 +1,136 @@
 /* General body styling with repeated background */
 body {
-    background-repeat: repeat;
-    background-size: auto;
-    background-position: top left;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Main container for WaiterDetails */
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Main container for WaiterDetails */
+.WaiterDetails {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+/* Individual card styling */
+.waiter-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Special card for adding new waiter */
+.add-card {
+  background-color: #e9f5e9;
+}
+
+/* Styling for form input fields */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Button styles */
+.btn-action {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.btn-action:hover {
+  background-color: #218838;
+}
+
+/* Delete button styles */
+.btn-delete {
+  padding: 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+/* Align the edit button next to the text */
+.b-with-edit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Styling for consistent button size next to text */
+.edit-button {
+  background-color: #ffc107;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 25px;
+  height: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+}
+
+/* Update and delete buttons side by side */
+.update-delete-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
   .WaiterDetails {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px;
-    max-height: 100vh;
-    overflow-y: auto;
-  }
-  
-  /* Individual card styling */
-  .waiter-card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 10px;
-    flex-shrink: 0;
-  }
-  
-  /* Special card for adding new waiter */
-  .add-card {
-    background-color: #e9f5e9;
-  }
-  
-  /* Styling for form input fields */
-  input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  /* Button styles */
-  .btn-action {
-    padding: 10px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: 100%;
-  }
-  
-  .btn-action:hover {
-    background-color: #218838;
-  }
-  
-  /* Delete button styles */
-  .btn-delete {
-    padding: 10px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: 100%;
-  }
-  
-  .btn-delete:hover {
-    background-color: #c82333;
-  }
-  
-  /* Align the edit button next to the text */
-  .b-with-edit {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
   }
-  
-  /* Styling for consistent button size next to text */
-  .edit-button {
-    background-color: #ffc107;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    width: 25px;
-    height: 25px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 5px;
+
+  .waiter-card {
+    width: 90%;
   }
-  
-  .edit-button:hover {
-    background-color: #e0a800;
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .waiter-card {
+    width: 45%;
   }
-  
-  /* Update and delete buttons side by side */
-  .update-delete-buttons {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  
-  /* Media queries for responsive design */
-  @media (max-width: 768px) {
-    .WaiterDetails {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .waiter-card {
-      width: 90%;
-    }
-  }
-  
-  @media (min-width: 769px) and (max-width: 1200px) {
-    .waiter-card {
-      width: 45%;
-    }
-  }
-  
+}

@@ -44,6 +44,13 @@ const WaiterDetails = () => {
     window.location.reload(); // Reload the page after adding a waiter
   };
 
+  const editWaiterField = async (id, field, newValue) => {
+    const waiterDoc = doc(db, "Waiters", id);
+    const newFields = { [field]: newValue }; // Dynamically update the specific field
+    await updateDoc(waiterDoc, newFields);
+    window.location.reload(); // Reload the page after updating
+  };
+
   const editWaiterId_ = async (id, newId) => {
     if (isDuplicateId(newId)) {
       alert(`ID ${newId} already exists. Please enter a unique ID.`);
@@ -52,31 +59,6 @@ const WaiterDetails = () => {
     const waiterDoc = doc(db, "Waiters", id);
     await updateDoc(waiterDoc, { id_: newId });
     window.location.reload(); // Reload the page after updating ID
-  };
-
-  const updateWaiter = async (id) => {
-    const nameInput = prompt("Enter new Name:");
-    const idInput = parseInt(prompt("Enter new ID:"));
-    const addressInput = prompt("Enter new Address:");
-    const salaryInput = parseInt(prompt("Enter new Salary:"));
-
-    // Check for duplicate ID
-    if (isDuplicateId(idInput)) {
-      alert(`ID ${idInput} already exists. Please enter a unique ID.`);
-      return;
-    }
-
-    const waiterDoc = doc(db, "Waiters", id);
-
-    const newFields = {
-      name: nameInput,
-      id_: idInput,
-      address: addressInput,
-      salary: salaryInput,
-    };
-
-    await updateDoc(waiterDoc, newFields);
-    window.location.reload(); // Reload the page after updating a waiter
   };
 
   const deleteWaiter = async (id) => {
@@ -133,7 +115,7 @@ const WaiterDetails = () => {
                 className="edit-button"
                 onClick={() => {
                   const newName = prompt("Enter new Name:", waiter.name);
-                  if (newName) updateWaiter(waiter.id, newName);
+                  if (newName) editWaiterField(waiter.id, "name", newName);
                 }}
               >
                 ✎
@@ -165,7 +147,8 @@ const WaiterDetails = () => {
                     "Enter new Address:",
                     waiter.address
                   );
-                  if (newAddress) updateWaiter(waiter.id, newAddress);
+                  if (newAddress)
+                    editWaiterField(waiter.id, "address", newAddress);
                 }}
               >
                 ✎
@@ -180,7 +163,8 @@ const WaiterDetails = () => {
                   const newSalary = parseInt(
                     prompt("Enter new Salary:", waiter.salary)
                   );
-                  if (newSalary) updateWaiter(waiter.id, newSalary);
+                  if (newSalary)
+                    editWaiterField(waiter.id, "salary", newSalary);
                 }}
               >
                 ✎
@@ -188,14 +172,6 @@ const WaiterDetails = () => {
             </div>
 
             <div className="update-delete-buttons">
-              <button
-                className="btn-action"
-                onClick={() => {
-                  updateWaiter(waiter.id);
-                }}
-              >
-                Update
-              </button>
               <button
                 className="btn-delete"
                 onClick={() => {
