@@ -9,7 +9,6 @@ import Table from "./components/Table";
 import WaiterDetails from "./components/WaiterDetails"; // New WaiterDetails component
 import { db } from "./components/firebase-config.js";
 import { collection, addDoc } from "firebase/firestore";
-
 function MainPage() {
   const [currentdish, setCurrentdish] = useState([]);
   const usersCollectionRef = collection(db, "Orders");
