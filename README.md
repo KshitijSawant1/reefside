@@ -13,7 +13,7 @@ Add New Waiters: Input waiter details including Name, ID, Address, and Salary.
 Edit Waiter Details: Update any details of existing waiters.
 Delete Waiters: Remove a waiter from the system.
 Duplicate ID Handling: Prevents the addition or update of a waiter with a duplicate ID.
-<img width="1106" alt="image" src="https://github.com/user-attachments/assets/9c3db25c-4052-49f8-9784-e82c9e1b1b19">
+<img width="1106" alt="image" src="https://github.com/user-attachments/assets/f576cbc9-ce7f-4b28-b3ec-b0df2801077f">
 
 ## 3. Order Management
 Order Review: View all placed orders with details like dishes, GST amount, and total price.
