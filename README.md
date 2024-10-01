@@ -1,4 +1,4 @@
-### ReefSide Restro - Restaurant Management WebApp
+## ReefSide Restro - Restaurant Management WebApp
 ReefSide Restro is a web-based restaurant management system designed to streamline the operations of restaurants with efficient digital solutions. Below are the core features of the application:
 
 ### Features
